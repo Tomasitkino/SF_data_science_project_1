@@ -13,17 +13,19 @@ def random_predict(number: int = 1) -> int:
     Returns:
         int: Число попыток
     """
-    count = 0
-    min_number = 1
-    max_number = 101
+    count = 0  # число попыток
+    min_number = 1  # минимальное число диапозона чисел
+    max_number = 101  # максимальное число диапозона чисел
 
     while True:
         count += 1
-        predict_number = (min_number + max_number) // 2  # предполагаемое число
+        # среднее число диапозона
+        predict_number = (min_number+max_number) // 2
+        # сужаем рамки поиска
         if number > predict_number:
-            min_number = predict_number
+            min_number = predict_number  # если загаданное число больше среднего из диапозона
         elif number < predict_number:
-            max_number = predict_number
+            max_number = predict_number  # если загаданное число меньше среднего из диапозона
         else:
             break  # выход из цикла если угадали
     return count
@@ -38,7 +40,7 @@ def score_game(random_predict) -> int:
     Returns:
         int: среднее количество попыток
     """
-    count_ls = []
+    count_ls = []  # пустой список для количества попыток
     # np.random.seed(1)  # фиксируем сид для воспроизводимости
     random_array = np.random.randint(
         1, 101, size=(1000))  # загадали список чисел
