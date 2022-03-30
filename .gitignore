@@ -2,3 +2,5 @@ __pycache__
 .vscode
 project_0
 intro_pandas/data/*.*
+.DS_Store/*.*
+intro_pandas/.DS_Store/*.*
